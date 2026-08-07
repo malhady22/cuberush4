@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="theme-color" content="#0B0E1A" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="description" content="Cube Rush - An addictive endless runner. Swipe, jump, and survive as a glowing cube racing through an ever-changing gauntlet of obstacles." />
+<title>Cube Rush</title>
+
+<!--
+  ==========================================================================
+  CUBE RUSH - Hyper Casual Endless Runner
+  Engine: Phaser 3 (latest stable, loaded via CDN below)
+  --------------------------------------------------------------------------
+  OFFLINE / APK / CAPACITOR NOTE:
+  For a fully offline Android build (Capacitor / Cordova / TWA), download
+  the Phaser 3 UMD bundle (https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js)
+  and the two Google Fonts below, place them under ./assets/ and swap the
+  <script src> / <link href> values to local relative paths. Everything in
+  this project otherwise runs with zero network access at runtime (all game
+  audio is synthesized with the Web Audio API, all save data is LocalStorage).
+  ==========================================================================
+-->
+
+<!-- Fonts: Orbitron (display / scores) + Rubik (UI body). Swap to local files under assets/fonts/ for offline packaging. -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ============================= GAME ROOT ============================= -->
+<div id="game-root">
+
+  <!-- Native HTML splash / loading screen shown before Phaser boots.
+       Removed once BootScene finishes and hands off to PreloadScene. -->
+  <div id="html-splash">
+    <div class="splash-glow"></div>
+    <div class="splash-logo">
+      <span class="splash-logo-cube"></span>
+      <h1>CUBE<span>RUSH</span></h1>
+    </div>
+    <div class="splash-bar-track">
+      <div id="splash-bar-fill"></div>
+    </div>
+    <p id="splash-status">Loading assets…</p>
+  </div>
+
+  <!-- Phaser canvas mounts here -->
+  <div id="phaser-container"></div>
+
+  <!-- Orientation lock notice (portrait-only game) -->
+  <div id="rotate-notice">
+    <div class="rotate-icon">⤾</div>
+    <p>Please rotate your device back to portrait mode</p>
+  </div>
+
+</div>
+<!-- =========================== /GAME ROOT =============================== -->
+
+<!-- ============================== PHASER 3 =============================== -->
+<script src="https://cdn.jsdelivr.net/npm/phaser@3.80.1/dist/phaser.min.js"></script>
+
+<!-- ============================ CORE MODULES ============================= -->
+<script src="Config.js"></script>
+<script src="Storage.js"></script>
+<script src="AudioManager.js"></script>
+<script src="Effects.js"></script>
+
+<!-- ============================ GAME OBJECT LOGIC ========================= -->
+<script src="Player.js"></script>
+<script src="ObstacleManager.js"></script>
+<script src="CoinManager.js"></script>
+<script src="PowerUpManager.js"></script>
+<script src="MissionManager.js"></script>
+
+<!-- ================================ SCENES ================================ -->
+<script src="scenes/BootScene.js"></script>
+<script src="scenes/PreloadScene.js"></script>
+<script src="scenes/MenuScene.js"></script>
+<script src="scenes/ShopScene.js"></script>
+<script src="scenes/AchievementsScene.js"></script>
+<script src="scenes/DailyRewardScene.js"></script>
+<script src="scenes/LuckySpinScene.js"></script>
+<script src="scenes/GameScene.js"></script>
+<script src="scenes/UIScene.js"></script>
+<script src="scenes/GameOverScene.js"></script>
+
+<!-- ================================ BOOTSTRAP ============================== -->
+<script src="main.js"></script>
+
+</body>
+</html>

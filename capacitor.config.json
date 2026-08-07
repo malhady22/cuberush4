@@ -1,0 +1,14 @@
+{
+  "appId": "com.cuberush.game",
+  "appName": "Cube Rush",
+  "webDir": "www",
+  "bundledWebRuntime": false,
+  "backgroundColor": "#0B0E1A",
+  "android": {
+    "backgroundColor": "#0B0E1A",
+    "allowMixedContent": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}
